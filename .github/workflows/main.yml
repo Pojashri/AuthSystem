@@ -1,0 +1,117 @@
+# 🚀 Full Git & GitHub Workflow for ASP.NET Core Razor Project
+
+This document contains the complete step-by-step Git workflow to version-control and push your Razor Pages Authentication System project to GitHub.
+
+---
+
+## 🧱 Step 1: Initialize Git
+
+Open terminal in your project directory and run:
+
+```bash
+git init
+```
+
+---
+
+## 📥 Step 2: Add All Files to Git
+
+```bash
+git add .
+```
+
+---
+
+## 💾 Step 3: First Commit
+
+```bash
+git commit -m "Initial commit - ASP.NET Core Razor Pages AuthSystem"
+```
+
+---
+
+## 🌐 Step 4: Create GitHub Repository
+
+1. Go to [https://github.com](https://github.com)
+2. Click **New Repository**
+3. Give it a name, e.g., `AuthSystem`
+4. Click **Create Repository**
+5. DO NOT initialize with README or .gitignore (we already have them locally)
+
+---
+
+## 🔗 Step 5: Connect Local Repo to GitHub
+
+```bash
+git remote add origin https://github.com/yourusername/AuthSystem.git
+```
+
+Replace `yourusername` with your actual GitHub username.
+
+---
+
+## ⬆️ Step 6: Push to GitHub
+
+```bash
+git push -u origin main
+```
+
+If you get an error (e.g., branch is master), use:
+
+```bash
+git push -u origin master
+```
+
+---
+
+## 🔄 Daily Workflow (After Code Changes)
+
+```bash
+git add .
+git commit -m "Describe your change"
+git push
+```
+
+---
+
+## 🚫 Step 7: Add `.gitignore`
+
+Run this command to auto-generate one for .NET:
+
+```bash
+dotnet new gitignore
+```
+
+Or create it manually and include:
+
+```gitignore
+bin/
+obj/
+*.user
+*.suo
+*.db
+*.sqlite
+.vscode/
+*.log
+.env
+appsettings.Development.json
+```
+This prevents sensitive or unnecessary files from being pushed to GitHub.
+
+---
+
+## 🔒 Optional: Hide Secrets
+
+Make sure `appsettings.json` and other config files with secrets are either excluded or use `appsettings.Development.json` locally.
+
+---
+
+## ✅ Extra Tips
+
+- Check status: `git status`
+- View commit log: `git log`
+- Undo last add: `git reset`
+
+---
+
+👏 Now your project is version-controlled and live on GitHub! Perfect for Upwork, portfolio, or team collaboration.
