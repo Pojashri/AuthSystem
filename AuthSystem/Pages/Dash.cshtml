@@ -1,3 +1,21 @@
 ﻿@page
-@model AuthSystem.Pages.DashModel
-<p>Hello, @User.Identity.Name!</p>
+@model DashboardModel
+@{
+    ViewData["Title"] = "User Dashboard";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">👋 Welcome, @User.Identity.Name</h2>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card shadow-sm border-primary">
+                <div class="card-body">
+                    <h5 class="card-title">Your Profile</h5>
+                    <p class="card-text">Name: @User.Identity.Name</p>
+                    <p class="card-text">Email: (can be shown from DB laterrrrrrrrr)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

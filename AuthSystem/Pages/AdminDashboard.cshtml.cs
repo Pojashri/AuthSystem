@@ -4,8 +4,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace AuthSystem.Pages
 {
-    [Authorize]
-    public class DashModel : PageModel
+    [Authorize(Roles = "Admin")]
+    public class AdminDashboardModel : PageModel
     {
         public void OnGet()
         {

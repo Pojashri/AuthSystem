@@ -1,0 +1,15 @@
+﻿@page
+@model AdminDashboardModel
+@{
+    ViewData["Title"] = "Admin Panellll ";
+}
+
+<div class="container mt-4">
+    <h2 class="text-danger">🛠️ Admin Panel</h2>
+
+    <div class="alert alert-warning mt-3">
+        Only admins can see this page. Welcome, @User.Identity.Name!
+    </div>
+
+    <p class="text-muted">More features like user management, reports, stats can be added here.</p>
+</div>

@@ -16,6 +16,9 @@ builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
+
+
+
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
@@ -33,3 +36,18 @@ app.UseAuthorization();
 app.MapRazorPages();
 
 app.Run();
+async Task SeedRolesAndAdmin(WebApplication app)
+{
+    using var scope = app.Services.CreateScope();
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+
+    string adminEmail = "admin@example.com"; 
+
+    if (!await roleManager.RoleExistsAsync("Admin"))
+        await roleManager.CreateAsync(new IdentityRole("Admin"));
+
+    var adminUser = await userManager.FindByEmailAsync(adminEmail);
+    if (adminUser != null && !(await userManager.IsInRoleAsync(adminUser, "Admin")))
+        await userManager.AddToRoleAsync(adminUser, "Admin");
+}
